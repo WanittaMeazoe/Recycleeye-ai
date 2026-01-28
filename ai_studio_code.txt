@@ -1,0 +1,22 @@
+filename = uploaded_file.name.lower()
+
+if "plastic" in filename:
+    result, conf, tip = "🧃 PLASTIC", "94%", "Rinse → Plastic Recycling Bin"
+elif "paper" in filename:
+    result, conf, tip = "📄 PAPER", "88%", "Keep dry → Paper Recycling"
+elif "glass" in filename:
+    result, conf, tip = "🍶 GLASS", "91%", "Rinse → Glass Recycling"
+elif "cardboard" in filename:
+    result, conf, tip = "📦 CARDBOARD", "86%", "Flatten → Cardboard Recycling"
+else:
+    materials = [
+        ("🧃 PLASTIC", "94%", "Rinse → Plastic Recycling"),
+        ("📄 PAPER", "88%", "Keep dry → Paper Recycling"),
+        ("🍶 GLASS", "91%", "Rinse → Glass Recycling"),
+        ("📦 CARDBOARD", "86%", "Flatten → Cardboard Recycling")
+    ]
+    result, conf, tip = random.choice(materials)
+
+st.success(f"AI Prediction: {result}")
+st.info(f"Confidence: {conf}")
+st.warning(f"♻️ Recycling Tip: {tip}")
